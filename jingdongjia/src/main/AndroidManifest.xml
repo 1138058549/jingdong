@@ -71,7 +71,8 @@
         <activity android:name=".ui.classfig.ListActivity" />
         <activity android:name=".ui.classfig.ListDetailsActivity" />
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".ui.classfig.BannerDetailsActivity"></activity>
+        <activity android:name=".ui.classfig.BannerDetailsActivity" />
+        <activity android:name=".ui.shopcart.ShopCartActivity"></activity>
     </application>
 
 </manifest>

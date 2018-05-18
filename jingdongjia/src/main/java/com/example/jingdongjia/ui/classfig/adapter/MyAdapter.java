@@ -1,4 +1,4 @@
-package com.example.jingdongjia.ui.homepage.adapter;
+package com.example.jingdongjia.ui.classfig.adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;

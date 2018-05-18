@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.example.jingdongjia.R;
 import com.example.jingdongjia.bean.ProductsBean;
-import com.example.jingdongjia.ui.homepage.adapter.MyAdapter;
-import com.example.jingdongjia.ui.homepage.widget.HackyViewPager;
+import com.example.jingdongjia.ui.classfig.adapter.MyAdapter;
+import com.example.jingdongjia.ui.widget.HackyViewPager;
 
 import java.util.Arrays;
 import java.util.List;

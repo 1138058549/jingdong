@@ -6,6 +6,7 @@ import com.example.jingdongjia.ui.LoginActivity;
 import com.example.jingdongjia.ui.classfig.ClassifyFragment;
 import com.example.jingdongjia.ui.classfig.ListActivity;
 import com.example.jingdongjia.ui.classfig.ListDetailsActivity;
+import com.example.jingdongjia.ui.shopcart.ShopCartActivity;
 
 import dagger.Component;
 
@@ -20,4 +21,6 @@ public interface HttpComponent {
     void inject(ListActivity listActivity);
 
     void inject(ListDetailsActivity listDetailsActivity);
+
+    void inject(ShopCartActivity shopCartActivity);
 }

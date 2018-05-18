@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.style.StrikethroughSpan;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,10 +16,13 @@ import com.example.jingdongjia.R;
 import com.example.jingdongjia.bean.AdBean;
 import com.example.jingdongjia.bean.ProductsBean;
 import com.example.jingdongjia.component.DaggerHttpComponent;
+import com.example.jingdongjia.ui.LoginActivity;
 import com.example.jingdongjia.ui.base.BaseActivity;
 import com.example.jingdongjia.ui.classfig.contract.AddCartContract;
 import com.example.jingdongjia.ui.classfig.presenter.AddCartPresenter;
+import com.example.jingdongjia.ui.shopcart.ShopCartActivity;
 import com.example.jingdongjia.utils.GlideImageLoader;
+import com.example.jingdongjia.utils.SharedPreferencesUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
 
@@ -131,9 +135,30 @@ public class ListDetailsActivity extends BaseActivity<AddCartPresenter> implemen
         switch (v.getId()) {
             default:
                 break;
-            case R.id.tvShopCard:
-                break;
             case R.id.tvAddCard:
+                //先判断是否登录
+                String token = (String) SharedPreferencesUtils.getParam(ListDetailsActivity.this, "token", "");
+                if (TextUtils.isEmpty(token)) {
+                    //还未登录
+                    //跳转到登录页面
+                    Intent intent = new Intent(ListDetailsActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                } else {
+                    //登录过了
+                    String uid = (String) SharedPreferencesUtils.getParam(ListDetailsActivity.this, "uid", "");
+                    int pid = 0;
+                    if (flag == ListActivity.LISTACTIVITY) {
+                        pid = bean.getPid();
+                    } else {
+                        pid = listBean.getPid();
+                    }
+                    mPresenter.addCart(uid, pid + "", token);
+                }
+                break;
+            case R.id.tvShopCard:
+                //跳转到购物车
+                Intent intent = new Intent(ListDetailsActivity.this, ShopCartActivity.class);
+                startActivity(intent);
                 break;
         }
     }

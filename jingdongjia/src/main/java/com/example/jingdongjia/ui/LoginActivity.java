@@ -13,8 +13,7 @@ import com.example.jingdongjia.module.HttpModule;
 import com.example.jingdongjia.ui.base.BaseActivity;
 import com.example.jingdongjia.ui.homepage.login.LoginContract;
 import com.example.jingdongjia.ui.homepage.login.LoginPresenter;
-
-
+import com.example.jingdongjia.utils.SharedPreferencesUtils;
 
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements View.OnClickListener, LoginContract.View {
@@ -69,6 +68,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements View.
     @Override
     public void loginSuccess(UserBean userBean) {
         Toast.makeText(LoginActivity.this, userBean.getMsg(), Toast.LENGTH_SHORT).show();
-    }
+        SharedPreferencesUtils.setParam(LoginActivity.this,"uid",userBean.getData().getUid() + "");
+        SharedPreferencesUtils.setParam(LoginActivity.this,"name",userBean.getData().getUsername() + "");
+        SharedPreferencesUtils.setParam(LoginActivity.this,"iconUrl",userBean.getData().getIcon() + "");
+        SharedPreferencesUtils.setParam(LoginActivity.this,"token",userBean.getData().getToken() + "");
+        LoginActivity.this.finish();    }
 }
 

@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     tools:context="com.example.jingdongjia.ui.classfig.BannerDetailsActivity">
 
-    <com.example.a1512qmvp.ui.widget.HackyViewPager
+    <com.example.jingdongjia.ui.widget.HackyViewPager
         android:id="@+id/hvp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.example.a1512qmvp.ui.widget.HackyViewPager>
+        android:layout_height="match_parent"></com.example.jingdongjia.ui.widget.HackyViewPager>
 
     <TextView
         android:id="@+id/tv"
