@@ -13,9 +13,11 @@ import android.widget.TextView;
 import com.example.jingdongjia.R;
 import com.example.jingdongjia.bean.GetCartsBean;
 import com.example.jingdongjia.bean.SellerBean;
+import com.example.jingdongjia.bean.eventbus.MessageEvent;
 import com.example.jingdongjia.component.DaggerHttpComponent;
 import com.example.jingdongjia.ui.base.BaseActivity;
 
+import com.example.jingdongjia.ui.mine.MakeSureOrderActivity;
 import com.example.jingdongjia.ui.shopcart.adapter.ElvShopcartAdapter;
 import com.example.jingdongjia.ui.shopcart.contract.ShopcartContract;
 import com.example.jingdongjia.ui.shopcart.pressenter.ShopcartPresenter;
@@ -83,7 +85,7 @@ public class ShopCartActivity extends BaseActivity<ShopcartPresenter> implements
                 }
             }
         });
-       /* mTvTotal.setOnClickListener(new View.OnClickListener() {
+       mTvTotal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShopCartActivity.this, MakeSureOrderActivity.class);
@@ -97,7 +99,7 @@ public class ShopCartActivity extends BaseActivity<ShopcartPresenter> implements
                 EventBus.getDefault().postSticky(messageEvent);
 
             }
-        });*/
+        });
 
     }
 

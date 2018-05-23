@@ -49,4 +49,7 @@ dependencies {
     implementation 'com.amap.api:map2d:latest.integration'
     implementation 'com.amap.api:location:latest.integration'
     implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    //刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
 }

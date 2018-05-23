@@ -13,22 +13,32 @@ import com.example.jingdongjia.inter.IBase;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends Fragment implements IBase,
         BaseContract.BaseView {
     @Inject
     protected T mPresenter;
+    private Unbinder bind;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         inject();
-        mPresenter.attchView(this);
-    }
+        if (mPresenter != null) {
+            mPresenter.attchView(this);
+        }    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mPresenter.detachView();
+        if (mPresenter != null) {
+            mPresenter.detachView();
+        }
+        if (bind != null) {
+            bind.unbind();
+        }
     }
 
     @Nullable
@@ -36,6 +46,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
         View view = inflater.inflate(getContentLayout(), null);
+        bind = ButterKnife.bind(getActivity(), view);
         initView(view);
         return view;
     }

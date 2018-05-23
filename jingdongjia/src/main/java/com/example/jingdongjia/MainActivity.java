@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 
 import com.example.jingdongjia.froment.HomePageFragment;
 import com.example.jingdongjia.ui.classfig.ClassifyFragment;
+import com.example.jingdongjia.ui.my.MyFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private HomePageFragment homePageFragment;
     private FragmentManager fragmentManager;
     private ClassifyFragment classifyFragment;
+    private MyFragment myFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         homePageFragment = new HomePageFragment();
         fragmentManager = getSupportFragmentManager();
         classifyFragment = new ClassifyFragment();
+        myFragment = new MyFragment();
         fragmentManager.beginTransaction().replace(R.id.flContent,homePageFragment).commit();
 
         mRbHomepage.setChecked(true);
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.rbShopCar:
                 break;
             case R.id.rbMine:
+                fragmentManager.beginTransaction().replace(R.id.flContent, myFragment).commit();
                 break;
         }
     }

@@ -23,6 +23,8 @@ import com.example.jingdongjia.net.ProductCatagoryApi;
 import com.example.jingdongjia.net.ProductCatagoryApiService;
 import com.example.jingdongjia.net.UpdateCartApi;
 import com.example.jingdongjia.net.UpdateCartApiService;
+import com.example.jingdongjia.net.UpdateHeaderApi;
+import com.example.jingdongjia.net.UpdateHeaderApiService;
 
 import java.util.concurrent.TimeUnit;
 
@@ -174,6 +176,18 @@ public class HttpModule {
                 .build();
         CreateOrderApiService createOrderApiService = retrofit.create(CreateOrderApiService.class);
         return CreateOrderApi.getCreateOrderApi(createOrderApiService);
+    }
+
+    @Provides
+    UpdateHeaderApi provideUpdateHeaderApi(OkHttpClient.Builder builder) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        UpdateHeaderApiService updateHeaderApiService = retrofit.create(UpdateHeaderApiService.class);
+        return UpdateHeaderApi.getUpdateHeaderApi(updateHeaderApiService);
     }
 
 }

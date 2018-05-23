@@ -72,7 +72,11 @@
         <activity android:name=".ui.classfig.ListDetailsActivity" />
         <activity android:name=".WebViewActivity" />
         <activity android:name=".ui.classfig.BannerDetailsActivity" />
-        <activity android:name=".ui.shopcart.ShopCartActivity"></activity>
+        <activity android:name=".ui.shopcart.ShopCartActivity" />
+        <activity android:name=".ui.mine.MakeSureOrderActivity" />
+        <activity android:name=".ui.mine.contract.MakeSureOrderContract" />
+        <activity android:name=".ui.mine.AddNewAddrActivity" />
+        <activity android:name=".ui.my.UserInfoActivity"></activity>
     </application>
 
 </manifest>
