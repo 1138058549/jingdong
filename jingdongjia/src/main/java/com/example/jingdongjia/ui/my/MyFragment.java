@@ -111,6 +111,12 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                     startActivity(intent);
                 }
                 break;
+
+            case R.id.my_order_dfk:
+                //跳转到我的订单页面
+                Intent intent = new Intent(getContext(),OrderListActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 

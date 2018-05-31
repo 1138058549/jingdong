@@ -103,6 +103,12 @@ public class UserInfoActivity extends BaseActivity<UpdatePresenter> implements V
                 break;
             case R.id.btn_pick_photo:
 
+                // "从相册选择"按钮被点击了
+                Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
+                // 如果限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型"
+                pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                startActivityForResult(pickIntent, PHOTO_REQUEST_GALLERY);
+
                 if (popupWindow != null && popupWindow.isShowing()) {
                     popupWindow.dismiss();
                 }
@@ -134,6 +140,9 @@ public class UserInfoActivity extends BaseActivity<UpdatePresenter> implements V
         startActivityForResult(intent, PHOTO_REQUEST_CUT);
     }
 
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -152,6 +161,10 @@ public class UserInfoActivity extends BaseActivity<UpdatePresenter> implements V
                     mPresenter.updateHeader(getUid(), imgPath);
 
                 }
+                break;
+
+            case PHOTO_REQUEST_GALLERY:
+                startPhotoZoom(data.getData());
 
                 break;
         }

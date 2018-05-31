@@ -8,6 +8,7 @@ import com.example.jingdongjia.ui.classfig.ListActivity;
 import com.example.jingdongjia.ui.classfig.ListDetailsActivity;
 import com.example.jingdongjia.ui.mine.MakeSureOrderActivity;
 import com.example.jingdongjia.ui.my.UserInfoActivity;
+import com.example.jingdongjia.ui.my.fragment.FragmentAllOrder;
 import com.example.jingdongjia.ui.shopcart.ShopCartActivity;
 
 import dagger.Component;
@@ -29,4 +30,6 @@ public interface HttpComponent {
     void inject(MakeSureOrderActivity makeSureOrderActivity);
 
     void inject(UserInfoActivity userInfoActivity);
+
+    void inject(FragmentAllOrder fragmentAllOrder);
 }

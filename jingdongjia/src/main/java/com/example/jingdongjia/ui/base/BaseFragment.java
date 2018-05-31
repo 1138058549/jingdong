@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jingdongjia.inter.IBase;
+import com.example.jingdongjia.utils.SharedPreferencesUtils;
 
 import javax.inject.Inject;
 
@@ -59,6 +60,13 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     @Override
     public void dismissLoading() {
 
+    }
+    protected String getUid() {
+        return (String) SharedPreferencesUtils.getParam(getContext(), "uid", "");
+    }
+
+    protected String getToken() {
+        return (String) SharedPreferencesUtils.getParam(getContext(), "token", "");
     }
 
 }
